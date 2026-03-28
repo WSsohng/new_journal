@@ -10,62 +10,62 @@ export function SubmissionForm() {
   const [state, action] = useActionState(createSubmissionAction, initialState);
 
   return (
-    <form action={action} className="space-y-4 rounded-2xl border border-slate-200 bg-white p-6">
+    <form action={action} className="nature-card space-y-4 rounded-sm p-6">
       <div>
-        <h2 className="text-lg font-semibold">New Preprint Submission</h2>
-        <p className="mt-1 text-sm text-slate-600">
+        <h2 className="text-2xl text-[#222]">New Preprint Submission</h2>
+        <p className="mt-1 text-sm text-[#585858]">
           Free submission with moderation-first workflow and transparent AI score initialization.
         </p>
       </div>
 
       <label className="block space-y-1 text-sm">
-        <span className="font-medium text-slate-800">Title *</span>
+        <span className="font-medium text-[#303030]">Title *</span>
         <input
           name="title"
           required
-          className="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-slate-500"
+          className="nature-input w-full rounded-sm px-3 py-2"
           placeholder="Paper title"
         />
       </label>
 
       <label className="block space-y-1 text-sm">
-        <span className="font-medium text-slate-800">Abstract *</span>
+        <span className="font-medium text-[#303030]">Abstract *</span>
         <textarea
           name="abstract"
           required
           rows={7}
-          className="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-slate-500"
+          className="nature-input w-full rounded-sm px-3 py-2"
           placeholder="Describe your claim, evidence, and key limitations."
         />
       </label>
 
       <div className="grid gap-4 md:grid-cols-2">
         <label className="block space-y-1 text-sm">
-          <span className="font-medium text-slate-800">Domain *</span>
+          <span className="font-medium text-[#303030]">Domain *</span>
           <input
             name="domain"
             required
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-slate-500"
+            className="nature-input w-full rounded-sm px-3 py-2"
             placeholder="e.g. Biomedical AI"
           />
         </label>
 
         <label className="block space-y-1 text-sm">
-          <span className="font-medium text-slate-800">Author Name *</span>
+          <span className="font-medium text-[#303030]">Author Name *</span>
           <input
             name="authorName"
             required
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-slate-500"
+            className="nature-input w-full rounded-sm px-3 py-2"
             placeholder="Full name"
           />
         </label>
       </div>
 
       <label className="block space-y-1 text-sm">
-        <span className="font-medium text-slate-800">ORCID</span>
+        <span className="font-medium text-[#303030]">ORCID</span>
         <input
           name="authorOrcid"
-          className="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-slate-500"
+          className="nature-input w-full rounded-sm px-3 py-2"
           placeholder="0000-0000-0000-0000"
         />
       </label>

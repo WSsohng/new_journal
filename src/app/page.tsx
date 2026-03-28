@@ -11,25 +11,25 @@ function StatCard({
   hint: string;
 }) {
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-4">
-      <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+    <div className="nature-card rounded-sm p-4">
+      <p className="nature-kicker">
         {label}
       </p>
-      <p className="mt-2 text-2xl font-semibold text-slate-900">{value}</p>
-      <p className="mt-1 text-xs text-slate-600">{hint}</p>
+      <p className="mt-2 text-2xl font-semibold text-[#222]">{value}</p>
+      <p className="mt-1 text-xs text-[var(--nature-muted)]">{hint}</p>
     </div>
   );
 }
 
 function statusBadge(status: string) {
   const map: Record<string, string> = {
-    moderation: "bg-slate-100 text-slate-700",
-    community_reviewed: "bg-blue-100 text-blue-700",
-    expert_reviewed: "bg-indigo-100 text-indigo-700",
-    recommended: "bg-emerald-100 text-emerald-700",
-    validated: "bg-teal-100 text-teal-700",
+    moderation: "bg-[#f3f3f3] text-[#444]",
+    community_reviewed: "bg-[#ebf6ff] text-[#1a5a96]",
+    expert_reviewed: "bg-[#f1eefc] text-[#4a3f8a]",
+    recommended: "bg-[#ebf9ee] text-[#166534]",
+    validated: "bg-[#e8f7f6] text-[#0f766e]",
   };
-  return map[status] ?? "bg-slate-100 text-slate-700";
+  return map[status] ?? "bg-[#f3f3f3] text-[#444]";
 }
 
 export default async function Home() {
@@ -44,27 +44,27 @@ export default async function Home() {
 
   return (
     <div className="space-y-8">
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <p className="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-700">
+      <section className="nature-card border-t-4 border-t-[var(--nature-blue)] p-6">
+        <p className="nature-kicker">
           AI-native Reviewed Preprint Platform
         </p>
-        <h1 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+        <h1 className="mt-4 text-4xl text-[#222] sm:text-5xl">
           Open submission first, trust layer second, overlay journal last.
         </h1>
-        <p className="mt-3 max-w-3xl text-slate-600">
+        <p className="mt-3 max-w-3xl text-[17px] leading-7 text-[#404040]">
           TrustLayer combines open repository publishing, structured community review,
           AI evidence scoring, and selective human recommendation.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Link
             href="/submissions/new"
-            className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-700"
+            className="nature-button-primary rounded-sm px-4 py-2 text-sm font-semibold no-underline"
           >
             Submit Preprint
           </Link>
           <Link
             href="/submissions"
-            className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100"
+            className="nature-button-secondary rounded-sm px-4 py-2 text-sm font-semibold no-underline"
           >
             Explore Submissions
           </Link>
@@ -103,31 +103,31 @@ export default async function Home() {
         />
       </section>
 
-      <section className="rounded-2xl border border-slate-200 bg-white p-6">
-        <div className="mb-4 flex items-center justify-between gap-4">
-          <h2 className="text-xl font-semibold">Latest Activity</h2>
-          <Link href="/submissions" className="text-sm font-medium text-slate-700">
+      <section className="nature-card rounded-sm p-6">
+        <div className="mb-4 flex items-center justify-between gap-4 border-b nature-divider pb-3">
+          <h2 className="text-3xl text-[#222]">Latest Activity</h2>
+          <Link href="/submissions" className="text-sm font-semibold no-underline">
             View all
           </Link>
         </div>
-        <div className="space-y-3">
+        <div className="divide-y nature-divider">
           {submissions.slice(0, 5).map((submission) => (
             <Link
               key={submission.id}
               href={`/submissions/${submission.id}`}
-              className="block rounded-xl border border-slate-200 p-4 transition hover:border-slate-400"
+              className="block py-4 no-underline"
             >
               <div className="flex items-center justify-between gap-2">
-                <p className="font-semibold text-slate-900">{submission.title}</p>
+                <p className="text-xl text-[#222]">{submission.title}</p>
                 <span
                   className={`rounded-full px-2.5 py-1 text-xs font-semibold ${statusBadge(
                     submission.status
                   )}`}
                 >
-                  {submission.status.replace("_", " ")}
+                  {submission.status.replaceAll("_", " ")}
                 </span>
               </div>
-              <p className="mt-2 text-sm text-slate-600">
+              <p className="mt-2 text-sm text-[#4a4a4a]">
                 {submission.domain} · v{submission.version} · {submission.reviewCount} reviews
               </p>
             </Link>

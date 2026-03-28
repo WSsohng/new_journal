@@ -20,7 +20,7 @@ function ScoreField({ name, label }: { name: string; label: string }) {
         max={5}
         name={name}
         required
-        className="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-slate-500"
+        className="nature-input w-full rounded-sm px-3 py-2"
       />
     </label>
   );
@@ -30,41 +30,41 @@ export function ReviewForm({ submissionId }: Props) {
   const [state, action] = useActionState(createReviewAction, initialState);
 
   return (
-    <form action={action} className="space-y-4 rounded-2xl border border-slate-200 bg-white p-5">
+    <form action={action} className="nature-card space-y-4 rounded-sm p-5">
       <input type="hidden" name="submissionId" value={submissionId} />
       <div>
-        <h3 className="text-base font-semibold">Add Open Review</h3>
-        <p className="mt-1 text-sm text-slate-600">
+        <h3 className="text-2xl text-[#222]">Add Open Review</h3>
+        <p className="mt-1 text-sm text-[#585858]">
           Reviews are transparent and linked to versioned records.
         </p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
         <label className="block space-y-1 text-sm">
-          <span className="font-medium text-slate-800">Reviewer Name *</span>
+          <span className="font-medium text-[#303030]">Reviewer Name *</span>
           <input
             name="reviewerName"
             required
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-slate-500"
+            className="nature-input w-full rounded-sm px-3 py-2"
           />
         </label>
         <label className="block space-y-1 text-sm">
-          <span className="font-medium text-slate-800">Expertise *</span>
+          <span className="font-medium text-[#303030]">Expertise *</span>
           <input
             name="expertise"
             required
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-slate-500"
+            className="nature-input w-full rounded-sm px-3 py-2"
             placeholder="e.g. Clinical ML"
           />
         </label>
       </div>
 
       <label className="block space-y-1 text-sm">
-        <span className="font-medium text-slate-800">Review Type *</span>
+        <span className="font-medium text-[#303030]">Review Type *</span>
         <select
           name="reviewType"
           required
-          className="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-slate-500"
+          className="nature-input w-full rounded-sm px-3 py-2"
           defaultValue="formal"
         >
           <option value="formal">Formal Review</option>
@@ -80,22 +80,22 @@ export function ReviewForm({ submissionId }: Props) {
       </div>
 
       <label className="block space-y-1 text-sm">
-        <span className="font-medium text-slate-800">Verdict *</span>
+        <span className="font-medium text-[#303030]">Verdict *</span>
         <input
           name="verdict"
           required
-          className="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-slate-500"
+          className="nature-input w-full rounded-sm px-3 py-2"
           placeholder="Short one-line judgment"
         />
       </label>
 
       <label className="block space-y-1 text-sm">
-        <span className="font-medium text-slate-800">Review Summary *</span>
+        <span className="font-medium text-[#303030]">Review Summary *</span>
         <textarea
           name="summary"
           required
           rows={5}
-          className="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-slate-500"
+          className="nature-input w-full rounded-sm px-3 py-2"
         />
       </label>
 

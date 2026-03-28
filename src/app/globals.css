@@ -1,8 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --nature-blue: #00539f;
+  --nature-link: #1a5a96;
+  --nature-border: #e5e5e5;
+  --nature-muted: #6f6f6f;
+  --nature-tint: #ebf6ff;
+  --nature-focus: #fece3e;
 }
 
 @theme inline {
@@ -15,5 +21,74 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans,
+    Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+a {
+  color: var(--nature-link);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Palatino, "Palatino Linotype", "Book Antiqua", serif;
+  line-height: 1.2;
+}
+
+.nature-shell {
+  background: #fff;
+}
+
+.nature-kicker {
+  color: #3d3d3d;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.nature-card {
+  border: 1px solid var(--nature-border);
+  background: #fff;
+}
+
+.nature-divider {
+  border-color: var(--nature-border);
+}
+
+.nature-button-primary {
+  background: var(--nature-blue);
+  color: #fff;
+  border: 1px solid var(--nature-blue);
+}
+
+.nature-button-primary:hover {
+  background: #004683;
+  text-decoration: none;
+}
+
+.nature-button-secondary {
+  border: 1px solid var(--nature-border);
+  color: #1a1a1a;
+  background: #fff;
+}
+
+.nature-button-secondary:hover {
+  background: #f7f7f7;
+  text-decoration: none;
+}
+
+.nature-input {
+  border: 1px solid #cfcfcf;
+  background: #fff;
+}
+
+.nature-input:focus {
+  outline: 2px solid var(--nature-focus);
+  outline-offset: 1px;
 }
