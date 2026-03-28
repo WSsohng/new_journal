@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## TrustLayer Journal MVP
 
-## Getting Started
+AI-native preprint platform + open review + overlay recommendation workflow.
 
-First, run the development server:
+## What is implemented
+
+- Open preprint submission screen
+- Submission repository list and detail page
+- Structured open review form (comment/formal)
+- Overlay recommendation form (`recommended`, `validated`, `major_concerns`)
+- AI support score panel (novelty, rigor, reproducibility, translation)
+- Supabase-backed data repository with mock fallback when env vars are missing
+
+## Tech stack
+
+- Next.js 16 (App Router)
+- React 19
+- Tailwind CSS v4
+- Supabase JS client
+
+## Local run
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Supabase setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Create a Supabase project.
+2. Run SQL in [supabase/schema.sql](./supabase/schema.sql).
+3. Copy env file and set keys:
 
-## Learn More
+```bash
+cp .env.example .env.local
+```
 
-To learn more about Next.js, take a look at the following resources:
+`.env.local`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```env
+NEXT_PUBLIC_SUPABASE_URL=...
+NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+If env vars are not set, app runs with built-in demo data.
 
-## Deploy on Vercel
+## Product model encoded in this MVP
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Repository layer: free submission + moderation status entry point
+2. Open review layer: public comments and formal reviews as structured objects
+3. Trust layer: AI-assisted evidence scores + recommendation status
+4. Overlay layer: selective human committee certification
